@@ -12,19 +12,21 @@ export default function Login() {
   const navigate = useNavigate();
 
   async function handleLogin() {
-    setLoading(true);
-    setError("");
-    try {
-      const res = await axios.post(`${API}/auth/login`, { email, password });
-      localStorage.setItem("kinetiq_token", res.data.token);
-      localStorage.setItem("kinetiq_user", JSON.stringify(res.data.user));
-      navigate("/dashboard");
-    } catch (e: any) {
-      setError(e.response?.data?.error || "Login failed");
-    } finally {
-      setLoading(false);
-    }
+  setLoading(true);
+  setError("");
+  try {
+    const res = await axios.post(`${API}/auth/login`, { email, password });
+    console.log("Login response:", res.data);
+    localStorage.setItem("kinetiq_token", res.data.token);
+    localStorage.setItem("kinetiq_user", JSON.stringify(res.data.user));
+    console.log("Token saved:", localStorage.getItem("kinetiq_token"));
+    navigate("/dashboard");
+  } catch (e: any) {
+    setError(e.response?.data?.error || "Login failed");
+  } finally {
+    setLoading(false);
   }
+}
 
   return (
     <div style={s.container}>
