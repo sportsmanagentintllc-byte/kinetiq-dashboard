@@ -12,7 +12,7 @@ export default function Sidebar() {
 
   function logout() {
     localStorage.clear();
-    navigate("/login");
+    window.location.href = "/login";
   }
 
   const userRaw = localStorage.getItem("kinetiq_user");
@@ -22,7 +22,6 @@ export default function Sidebar() {
     <div style={s.sidebar}>
       <div style={s.logo}>KINETIQ</div>
       <div style={s.tagline}>Money at the Speed of Ambition</div>
-
       <div style={s.nav}>
         {links.map(link => (
           <div
@@ -35,7 +34,6 @@ export default function Sidebar() {
           </div>
         ))}
       </div>
-
       <div style={s.bottom}>
         <div style={s.userBox}>
           <div style={s.avatar}>{user?.email?.[0]?.toUpperCase() || "U"}</div>
@@ -62,93 +60,35 @@ const s: Record<string, React.CSSProperties> = {
     left: 0,
     top: 0,
     bottom: 0,
+    zIndex: 100,
   },
-  logo: {
-    color: "#ffffff",
-    fontSize: 24,
-    fontWeight: 900,
-    letterSpacing: 4,
-    marginBottom: 4,
-  },
-  tagline: {
-    color: "#00C896",
-    fontSize: 11,
-    fontStyle: "italic",
-    marginBottom: 40,
-  },
-  nav: {
-    display: "flex",
-    flexDirection: "column",
-    gap: 4,
-    flex: 1,
-  },
+  logo: { color: "#ffffff", fontSize: 24, fontWeight: 900, letterSpacing: 4, marginBottom: 4 },
+  tagline: { color: "#00C896", fontSize: 11, fontStyle: "italic", marginBottom: 40 },
+  nav: { display: "flex", flexDirection: "column", gap: 4, flex: 1 },
   link: {
-    display: "flex",
-    alignItems: "center",
-    gap: 12,
-    color: "#7A8FA6",
-    fontSize: 14,
-    fontWeight: 500,
-    padding: "12px 16px",
-    borderRadius: 10,
-    cursor: "pointer",
-    transition: "all 0.2s",
+    display: "flex", alignItems: "center", gap: 12,
+    color: "#7A8FA6", fontSize: 14, fontWeight: 500,
+    padding: "12px 16px", borderRadius: 10, cursor: "pointer",
   },
-  activeLink: {
-    background: "rgba(255,255,255,0.1)",
-    color: "#ffffff",
-  },
-  icon: {
-    fontSize: 18,
-    width: 20,
-    textAlign: "center",
-  },
-  bottom: {
-    borderTop: "1px solid rgba(255,255,255,0.1)",
-    paddingTop: 20,
-  },
-  userBox: {
-    display: "flex",
-    alignItems: "center",
-    gap: 12,
-    marginBottom: 12,
-  },
+  activeLink: { background: "rgba(255,255,255,0.1)", color: "#ffffff" },
+  icon: { fontSize: 18, width: 20, textAlign: "center" },
+  bottom: { borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: 20 },
+  userBox: { display: "flex", alignItems: "center", gap: 12, marginBottom: 12 },
   avatar: {
-    width: 36,
-    height: 36,
-    borderRadius: "50%",
-    background: "#00C896",
-    color: "#0A1F44",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    fontWeight: 800,
-    fontSize: 14,
+    width: 36, height: 36, borderRadius: "50%",
+    background: "#00C896", color: "#0A1F44",
+    display: "flex", alignItems: "center", justifyContent: "center",
+    fontWeight: 800, fontSize: 14, flexShrink: 0,
   },
-  userInfo: {
-    flex: 1,
-    overflow: "hidden",
-  },
+  userInfo: { flex: 1, overflow: "hidden" },
   userEmail: {
-    color: "#fff",
-    fontSize: 12,
-    fontWeight: 600,
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-    whiteSpace: "nowrap",
+    color: "#fff", fontSize: 12, fontWeight: 600,
+    overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
   },
-  userType: {
-    color: "#7A8FA6",
-    fontSize: 11,
-    textTransform: "capitalize",
-  },
+  userType: { color: "#7A8FA6", fontSize: 11, textTransform: "capitalize" },
   logoutBtn: {
-    color: "#7A8FA6",
-    fontSize: 13,
-    cursor: "pointer",
-    padding: "8px 16px",
-    borderRadius: 8,
-    textAlign: "center",
+    color: "#7A8FA6", fontSize: 13, cursor: "pointer",
+    padding: "8px 16px", borderRadius: 8, textAlign: "center",
     border: "1px solid rgba(255,255,255,0.1)",
   },
 };

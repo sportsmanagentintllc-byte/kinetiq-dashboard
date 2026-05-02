@@ -1,3 +1,4 @@
+import MobileNav from "../components/MobileNav";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -79,6 +80,7 @@ export default function Dashboard() {
   return (
     <div style={s.container}>
       <Sidebar />
+      <MobileNav />
       <div style={s.main}>
         <div style={s.header}>
           <div>

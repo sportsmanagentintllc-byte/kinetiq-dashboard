@@ -1,3 +1,4 @@
+import MobileNav from "../components/MobileNav";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate, useSearchParams } from "react-router-dom";
@@ -50,6 +51,7 @@ export default function Deposit() {
   return (
     <div style={s.container}>
       <Sidebar />
+      <MobileNav />
       <div style={s.main}>
         <div style={s.header}>
           <div style={s.title}>Deposit Funds</div>
