@@ -1,3 +1,5 @@
+import Sidebar from "../components/Sidebar";
+import MobileNav from "../components/MobileNav";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -44,13 +46,15 @@ export default function FxQuote() {
   }
 
   return (
-    <div style={s.container}>
-      <div style={s.nav}>
-        <div style={s.logo}>KINETIQ</div>
-        <div style={s.navRight}>
-          <button style={s.navBtn} onClick={() => navigate("/dashboard")}>Dashboard</button>
-        </div>
+  <div style={s.container}>
+    <Sidebar />
+    <MobileNav />
+    <div style={s.nav}>
+      <div style={s.logo}>KINETIQ</div>
+      <div style={s.navRight}>
+        <button style={s.navBtn} onClick={() => navigate("/dashboard")}>Dashboard</button>
       </div>
+    </div>
 
       <div style={s.body}>
         <div style={s.title}>FX Rate Calculator</div>
@@ -162,7 +166,12 @@ const s: Record<string, React.CSSProperties> = {
     border: "1px solid rgba(255,255,255,0.2)", borderRadius: 6,
     padding: "6px 14px", fontSize: 13, cursor: "pointer",
   },
-  body: { maxWidth: 680, margin: "0 auto", padding: "40px 24px" },
+ body: { 
+  maxWidth: 680, 
+  margin: "0 auto", 
+  padding: window.innerWidth <= 768 ? "80px 16px 24px 16px" : "40px 24px" 
+},
+},
   title: { fontSize: 28, fontWeight: 800, color: "#0A1F44", marginBottom: 8 },
   subtitle: { fontSize: 14, color: "#666", marginBottom: 32, lineHeight: 1.6 },
   card: {
