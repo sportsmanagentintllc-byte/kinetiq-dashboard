@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -10,8 +12,37 @@ body {
   color: #0A1F44;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #f1f1f1; }
 ::-webkit-scrollbar-thumb { background: #c1c9d6; border-radius: 3px; }
+
+/* Hide sidebar on mobile, show on desktop */
+.sidebar-desktop {
+  display: flex;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+.main-content {
+  margin-left: 260px;
+  flex: 1;
+  padding: 32px 40px;
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .sidebar-desktop {
+    display: none !important;
+  }
+
+  .mobile-nav {
+    display: block;
+  }
+
+  .main-content {
+    margin-left: 0 !important;
+    padding: 80px 16px 24px 16px;
+  }
+}

@@ -140,7 +140,12 @@ export default function Deposit() {
 
 const s: Record<string, React.CSSProperties> = {
   container: { display: "flex", minHeight: "100vh", background: "#F0F2F7" },
-  main: { marginLeft: 260, flex: 1, padding: "32px 40px" },
+  main: {
+  marginLeft: window.innerWidth <= 768 ? 0 : 260,
+  flex: 1,
+  padding: window.innerWidth <= 768 ? "80px 16px 24px 16px" : "32px 40px",
+  minHeight: "100vh",
+},
   header: { marginBottom: 32 },
   title: { fontSize: 28, fontWeight: 800, color: "#0A1F44", marginBottom: 6 },
   subtitle: { fontSize: 14, color: "#7A8FA6" },

@@ -4,13 +4,16 @@ import { useNavigate, useLocation } from "react-router-dom";
 const links = [
   { path: "/dashboard", label: "Dashboard", icon: "⬡" },
   { path: "/transfer", label: "Transfer", icon: "↗" },
-  { path: "/fx", label: "FX", icon: "◈" },
+  { path: "/fx", label: "FX Rates", icon: "◈" },
 ];
 
 export default function MobileNav() {
   const navigate = useNavigate();
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const isMobile = window.innerWidth <= 768;
+
+  if (!isMobile) return null;
 
   const userRaw = localStorage.getItem("kinetiq_user");
   const user = userRaw ? JSON.parse(userRaw) : null;
@@ -21,7 +24,7 @@ export default function MobileNav() {
   }
 
   return (
-    <>
+    <div>
       <div style={s.topBar}>
         <div style={s.logo}>KINETIQ</div>
         <button style={s.menuBtn} onClick={() => setMenuOpen(!menuOpen)}>
@@ -30,8 +33,8 @@ export default function MobileNav() {
       </div>
 
       {menuOpen && (
-        <div style={s.drawer}>
-          <div style={s.drawerInner}>
+        <div style={s.overlay} onClick={() => setMenuOpen(false)}>
+          <div style={s.drawer} onClick={e => e.stopPropagation()}>
             <div style={s.userBox}>
               <div style={s.avatar}>{user?.email?.[0]?.toUpperCase() || "U"}</div>
               <div>
@@ -55,7 +58,7 @@ export default function MobileNav() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
@@ -73,15 +76,15 @@ const s: Record<string, React.CSSProperties> = {
   logo: { color: "#fff", fontSize: 20, fontWeight: 900, letterSpacing: 3 },
   menuBtn: {
     background: "none", border: "none",
-    color: "#fff", fontSize: 22, cursor: "pointer",
+    color: "#fff", fontSize: 24, cursor: "pointer",
   },
-  drawer: {
+  overlay: {
     position: "fixed",
     top: 56, left: 0, right: 0, bottom: 0,
     background: "rgba(0,0,0,0.5)",
     zIndex: 199,
   },
-  drawerInner: {
+  drawer: {
     background: "#0A1F44",
     padding: "24px 20px",
     display: "flex",
@@ -90,7 +93,8 @@ const s: Record<string, React.CSSProperties> = {
   },
   userBox: {
     display: "flex", alignItems: "center", gap: 12,
-    padding: "16px 0", borderBottom: "1px solid rgba(255,255,255,0.1)",
+    padding: "16px 0",
+    borderBottom: "1px solid rgba(255,255,255,0.1)",
     marginBottom: 8,
   },
   avatar: {

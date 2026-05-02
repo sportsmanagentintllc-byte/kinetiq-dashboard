@@ -9,6 +9,9 @@ const links = [
 export default function Sidebar() {
   const navigate = useNavigate();
   const location = useLocation();
+  const isMobile = window.innerWidth <= 768;
+
+  if (isMobile) return null;
 
   function logout() {
     localStorage.clear();
@@ -39,7 +42,7 @@ export default function Sidebar() {
           <div style={s.avatar}>{user?.email?.[0]?.toUpperCase() || "U"}</div>
           <div style={s.userInfo}>
             <div style={s.userEmail}>{user?.email}</div>
-            <div style={s.userType}>{user?.userType} · {user?.kycStatus}</div>
+            <div style={s.userType}>{user?.userType}</div>
           </div>
         </div>
         <div style={s.logoutBtn} onClick={logout}>Sign Out</div>
