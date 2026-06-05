@@ -100,3 +100,4 @@ const s: Record<string, React.CSSProperties> = {
   background: "rgba(255,0,0,0.15)",
   marginTop: 8,
 },
+};
