@@ -64,6 +64,7 @@ const s: Record<string, React.CSSProperties> = {
     top: 0,
     bottom: 0,
     zIndex: 100,
+     overflowY: "auto",
   },
   logo: { color: "#ffffff", fontSize: 24, fontWeight: 900, letterSpacing: 4, marginBottom: 4 },
   tagline: { color: "#00C896", fontSize: 11, fontStyle: "italic", marginBottom: 40 },
