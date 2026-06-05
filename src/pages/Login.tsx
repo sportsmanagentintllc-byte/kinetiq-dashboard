@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const API = "https://web-production-51e3b.up.railway.app";
+const API = "https://kinetiq-core.onrender.com";
 
 export default function Login() {
   const [email, setEmail] = useState("");

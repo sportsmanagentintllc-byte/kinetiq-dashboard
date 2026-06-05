@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 
-const API = "https://web-production-51e3b.up.railway.app";
+const API = "https://kinetiq-core.onrender.com";
 
 export default function Deposit() {
   const navigate = useNavigate();

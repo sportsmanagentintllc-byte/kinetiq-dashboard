@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import MobileNav from "../components/MobileNav";
 
-const API = "https://web-production-51e3b.up.railway.app";
+const API = "https://kinetiq-core.onrender.com";
 const isMobile = window.innerWidth <= 768;
 
 interface QuoteResult {
