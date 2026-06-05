@@ -90,8 +90,13 @@ const s: Record<string, React.CSSProperties> = {
   },
   userType: { color: "#7A8FA6", fontSize: 11, textTransform: "capitalize" },
   logoutBtn: {
-    color: "#7A8FA6", fontSize: 13, cursor: "pointer",
-    padding: "8px 16px", borderRadius: 8, textAlign: "center",
-    border: "1px solid rgba(255,255,255,0.1)",
-  },
-};
+  color: "#fff",
+  fontSize: 13,
+  cursor: "pointer",
+  padding: "10px 16px",
+  borderRadius: 8,
+  textAlign: "center",
+  border: "1px solid rgba(255,255,255,0.2)",
+  background: "rgba(255,0,0,0.15)",
+  marginTop: 8,
+},
