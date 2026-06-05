@@ -60,7 +60,7 @@ const s: Record<string, React.CSSProperties> = {
     background: "#0A1F44",
     display: "flex",
     flexDirection: "column",
-    padding: "32px 20px 24px 20px",
+    padding: "32px 20px 8px 20px",
     position: "fixed",
     left: 0,
     top: 0,
@@ -76,10 +76,12 @@ const s: Record<string, React.CSSProperties> = {
   },
   activeLink: { background: "rgba(255,255,255,0.1)", color: "#ffffff" },
   icon: { fontSize: 18, width: 20, textAlign: "center" },
-  bottom: {
+ bottom: {
     borderTop: "1px solid rgba(255,255,255,0.1)",
     paddingTop: 16,
+    paddingBottom: 16,
     marginTop: "auto",
+    flexShrink: 0,
   },
   userBox: { display: "flex", alignItems: "center", gap: 12, marginBottom: 12 },
   avatar: {
