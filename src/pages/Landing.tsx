@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>KINETIQ — Financial Infrastructure for Africa's Rising Generation</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
-<style>
-:root{
+import { useEffect } from "react";
+
+export default function Landing() {
+  useEffect(() => {
+    document.title = "KINETIQ — Financial Infrastructure for Africa's Rising Generation";
+  }, []);
+
+  return (
+    <>
+      <style>{`:root{
   --navy:#040D1C;--navy2:#071428;--card:#0B1A2E;--card2:#0E2040;
   --green:#00D4A0;--green2:#00B589;--gold:#F0A500;--red:#F05050;
   --white:#F0F4FF;--gray:#6A7A90;--gray2:#8A9BB0;
@@ -205,12 +205,8 @@ footer{padding:60px 72px;border-top:1px solid var(--border);}
 .wvis-pct{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;margin-top:4px;}
 .wvis-splits{display:flex;flex-direction:column;gap:10px;}
 .wvis-arrow{display:flex;align-items:center;flex-shrink:0;}
-.wvis-badge{text-align:center;font-size:11px;color:var(--gray);letter-spacing:1px;padding:10px;background:rgba(255,255,255,.02);border-radius:8px;border:1px solid var(--border);}
-</style>
-</head>
-<body>
-
-<nav>
+.wvis-badge{text-align:center;font-size:11px;color:var(--gray);letter-spacing:1px;padding:10px;background:rgba(255,255,255,.02);border-radius:8px;border:1px solid var(--border);}`}</style>
+      <div dangerouslySetInnerHTML={{ __html: `<nav>
   <div class="logo-t">KINET<em>IQ</em></div>
   <ul class="nav-ul">
     <li><a href="#problem">The Problem</a></li>
@@ -515,7 +511,7 @@ footer{padding:60px 72px;border-top:1px solid var(--border);}
     <div class="fc">&#169; 2026 KINETIQ Financial Group. All rights reserved.</div>
     <div class="fleg">KINETIQ is a financial technology platform. Banking services provided through licensed partners. Not a deposit-taking institution. All transactions processed through regulated payment infrastructure. FX rates are indicative and subject to market conditions.</div>
   </div>
-</footer>
-
-</body>
-</html>
+</footer>` }} />
+    </>
+  );
+}
