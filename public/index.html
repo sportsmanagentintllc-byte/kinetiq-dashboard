@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>KINETIQ — Financial Infrastructure for Africa's Rising Generation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --navy:#040D1C;--navy2:#071428;--card:#0B1A2E;--card2:#0E2040;
+  --green:#00D4A0;--green2:#00B589;--gold:#F0A500;--red:#F05050;
+  --white:#F0F4FF;--gray:#6A7A90;--gray2:#8A9BB0;
+  --border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.12);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+h1,h2,h3,h4,.logo-t{font-family:'Syne',sans-serif;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 72px;display:flex;align-items:center;justify-content:space-between;background:rgba(4,13,28,0.85);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
+.logo-t{font-size:20px;font-weight:800;letter-spacing:5px;color:var(--white);}
+.logo-t em{color:var(--green);font-style:normal;}
+.nav-ul{display:flex;gap:32px;list-style:none;}
+.nav-ul a{color:var(--gray2);text-decoration:none;font-size:13px;font-weight:500;transition:color .2s;}
+.nav-ul a:hover{color:var(--white);}
+.nav-r{display:flex;gap:10px;align-items:center;}
+.b-ghost{padding:9px 22px;border:1px solid var(--border2);border-radius:8px;color:var(--white);text-decoration:none;font-size:13px;font-weight:500;transition:all .2s;}
+.b-ghost:hover{border-color:rgba(0,212,160,.5);color:var(--green);}
+.b-nav{padding:9px 22px;background:var(--green);border-radius:8px;color:var(--navy);text-decoration:none;font-size:13px;font-weight:700;font-family:'Syne',sans-serif;transition:all .2s;}
+.b-nav:hover{background:var(--green2);transform:translateY(-1px);}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:130px 72px 80px;position:relative;overflow:hidden;}
+.h-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);background-size:80px 80px;pointer-events:none;}
+.h-glow{position:absolute;width:800px;height:800px;background:radial-gradient(circle,rgba(0,212,160,0.06) 0%,transparent 65%);right:-100px;top:50%;transform:translateY(-50%);pointer-events:none;}
+.h-cont{position:relative;z-index:2;max-width:660px;}
+.h-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(0,212,160,0.08);border:1px solid rgba(0,212,160,0.25);border-radius:100px;padding:6px 18px;font-size:11px;color:var(--green);font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:36px;}
+.pulse{width:7px;height:7px;background:var(--green);border-radius:50%;animation:pls 2s ease-in-out infinite;}
+@keyframes pls{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,212,160,0.4);}50%{opacity:.7;box-shadow:0 0 0 6px rgba(0,212,160,0);}}
+.hero h1{font-size:clamp(44px,5.5vw,78px);font-weight:800;line-height:1.02;letter-spacing:-1.5px;margin-bottom:24px;}
+.gc{color:var(--green);}
+.hero p{font-size:17px;color:var(--gray2);line-height:1.75;max-width:520px;margin-bottom:44px;}
+.h-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.b-hero{padding:16px 38px;background:var(--green);color:var(--navy);border-radius:10px;font-family:'Syne',sans-serif;font-weight:700;font-size:15px;text-decoration:none;transition:all .25s;}
+.b-hero:hover{background:var(--green2);transform:translateY(-2px);box-shadow:0 16px 36px rgba(0,212,160,0.25);}
+.b-out{padding:16px 38px;border:1px solid var(--border2);color:var(--white);border-radius:10px;font-size:15px;text-decoration:none;transition:all .25s;}
+.b-out:hover{border-color:rgba(255,255,255,.3);}
+.h-vis{position:absolute;right:72px;top:50%;transform:translateY(-50%);width:420px;z-index:2;}
+.hc{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px;margin-bottom:14px;position:relative;overflow:hidden;}
+.hc::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,var(--green) 50%,transparent 100%);opacity:.5;}
+.hc-lbl{font-size:10px;color:var(--gray);text-transform:uppercase;letter-spacing:2px;margin-bottom:10px;}
+.hc-amt{font-family:'Syne',sans-serif;font-size:34px;font-weight:800;color:var(--white);margin-bottom:4px;letter-spacing:-1px;}
+.hc-sub{font-size:12px;color:var(--green);font-weight:500;margin-bottom:22px;}
+.hc-pills{display:flex;gap:8px;flex-wrap:wrap;}
+.hp{padding:5px 13px;border-radius:100px;font-size:11px;font-weight:600;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--gray2);}
+.hp.on{background:rgba(0,212,160,.1);border-color:rgba(0,212,160,.3);color:var(--green);}
+.fx-c{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.fx-col{display:flex;flex-direction:column;gap:3px;}
+.fx-l{font-size:10px;color:var(--gray);text-transform:uppercase;letter-spacing:1.5px;}
+.fx-v{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;}
+.fx-f{font-size:11px;color:var(--green);}
+.fx-arr{width:32px;height:32px;border-radius:50%;background:rgba(0,212,160,.1);border:1px solid rgba(0,212,160,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+
+/* STATS */
+.stats{padding:56px 72px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--navy2);}
+.sg{display:grid;grid-template-columns:repeat(4,1fr);}
+.si{padding:0 40px;text-align:center;border-right:1px solid var(--border);}
+.si:last-child{border-right:none;}
+.sn{font-family:'Syne',sans-serif;font-size:52px;font-weight:800;line-height:1;margin-bottom:10px;}
+.sl{font-size:13px;color:var(--gray2);line-height:1.5;}
+.gr{color:var(--green);}.rd{color:var(--red);}.gd{color:var(--gold);}
+
+/* SECTIONS */
+.S{padding:100px 72px;}
+.S.dk{background:var(--navy2);}
+.stag{font-size:11px;color:var(--green);text-transform:uppercase;letter-spacing:2.5px;font-weight:600;margin-bottom:14px;}
+.sh{font-size:clamp(30px,3.5vw,52px);font-weight:800;line-height:1.08;letter-spacing:-.5px;margin-bottom:20px;}
+.sp{font-size:16px;color:var(--gray2);line-height:1.75;max-width:540px;}
+
+/* PROBLEM */
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.pcs{display:flex;flex-direction:column;gap:12px;}
+.pc{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px 24px;display:flex;gap:18px;align-items:flex-start;transition:border-color .2s,background .2s;}
+.pc:hover{border-color:rgba(0,212,160,.25);background:var(--card2);}
+.pi{width:40px;height:40px;flex-shrink:0;background:rgba(0,212,160,.07);border:1px solid rgba(0,212,160,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;}
+.pi svg{width:18px;height:18px;stroke:var(--green);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.pt{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:5px;}
+.pd{font-size:13px;color:var(--gray2);line-height:1.6;}
+
+/* FEATURES */
+.fg{display:grid;grid-template-columns:repeat(3,1fr);margin-top:60px;border:1px solid var(--border);border-radius:20px;overflow:hidden;}
+.fi{padding:40px 32px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);transition:background .2s;}
+.fi:hover{background:var(--card2);}
+.fi:nth-child(3n){border-right:none;}
+.fi:nth-child(n+4){border-bottom:none;}
+.fic{width:48px;height:48px;background:rgba(0,212,160,.07);border:1px solid rgba(0,212,160,.15);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
+.fic svg{width:22px;height:22px;stroke:var(--green);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.ftt{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:10px;}
+.fds{font-size:13px;color:var(--gray2);line-height:1.65;}
+
+/* STEPS */
+.stg{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;margin-top:64px;}
+.stp{position:relative;}
+.stn{font-family:'Syne',sans-serif;font-size:56px;font-weight:800;color:rgba(0,212,160,.08);line-height:1;margin-bottom:16px;}
+.sttl{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:10px;}
+.std{font-size:13px;color:var(--gray2);line-height:1.65;}
+
+/* AUDIENCE */
+.ag{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:60px;}
+.ac{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px 28px;transition:all .25s;}
+.ac:hover{border-color:rgba(0,212,160,.3);transform:translateY(-4px);box-shadow:0 32px 64px rgba(0,0,0,.3);}
+.aic{width:52px;height:52px;background:rgba(0,212,160,.07);border:1px solid rgba(0,212,160,.15);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;}
+.aic svg{width:24px;height:24px;stroke:var(--green);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+.at{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;margin-bottom:12px;}
+.ad{font-size:14px;color:var(--gray2);line-height:1.7;margin-bottom:20px;}
+.tgs{display:flex;flex-wrap:wrap;gap:8px;}
+.tg{padding:4px 12px;background:rgba(0,212,160,.07);border:1px solid rgba(0,212,160,.18);border-radius:100px;font-size:11px;color:var(--green);font-weight:600;}
+
+/* COMPARISON */
+.ct{margin-top:56px;border:1px solid var(--border);border-radius:20px;overflow:hidden;}
+.ch{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;background:var(--card2);padding:18px 36px;gap:16px;border-bottom:1px solid var(--border);}
+.ch div{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;text-align:center;color:var(--gray2);}
+.ch div:first-child{text-align:left;}
+.ch .kq{color:var(--green);}
+.cr{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;padding:16px 36px;gap:16px;border-bottom:1px solid var(--border);align-items:center;transition:background .15s;}
+.cr:last-child{border-bottom:none;}
+.cr:hover{background:rgba(255,255,255,.02);}
+.cr div{text-align:center;font-size:13px;}
+.cr div:first-child{text-align:left;color:var(--gray2);}
+.ck{color:var(--green);font-size:16px;font-weight:700;}
+.cx{color:var(--red);font-size:16px;}
+.cp{color:var(--gold);font-size:12px;font-weight:600;}
+.cv{font-weight:700;font-family:'Syne',sans-serif;}
+
+/* GUNDUA */
+.gg{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.gf{display:flex;flex-direction:column;gap:10px;}
+.gs{display:flex;align-items:flex-start;gap:16px;background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:12px;padding:18px 22px;transition:all .2s;}
+.gs:hover{border-color:rgba(0,212,160,.25);background:rgba(0,212,160,.03);}
+.gn{width:30px;height:30px;flex-shrink:0;background:var(--green);color:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:12px;margin-top:1px;}
+.gt{font-size:13px;color:var(--gray2);line-height:1.6;}
+.gt strong{color:var(--white);font-weight:600;}
+
+/* WEB3 */
+.wg{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:56px;}
+.wc{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:32px;transition:all .2s;}
+.wc:hover{border-color:rgba(0,212,160,.25);}
+.wc.wide{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.wb{display:inline-block;padding:4px 12px;background:rgba(240,165,0,.08);border:1px solid rgba(240,165,0,.25);border-radius:100px;font-size:10px;color:var(--gold);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;}
+.wt{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;margin-bottom:12px;line-height:1.2;}
+.wd{font-size:13px;color:var(--gray2);line-height:1.7;}
+.wcode{background:rgba(0,212,160,.04);border:1px solid rgba(0,212,160,.12);border-radius:14px;padding:28px;font-family:'Courier New',monospace;font-size:12px;color:var(--green);line-height:1.9;white-space:pre;overflow:auto;}
+
+/* CTA */
+.cta{padding:120px 72px;text-align:center;position:relative;overflow:hidden;}
+.cta-g{position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 50%,rgba(0,212,160,.05) 0%,transparent 70%);}
+.cta h2{font-size:clamp(36px,5vw,66px);font-weight:800;line-height:1.05;letter-spacing:-1px;margin-bottom:20px;position:relative;}
+.cta p{font-size:17px;color:var(--gray2);margin-bottom:44px;position:relative;}
+.cbs{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;}
+.bc{padding:18px 52px;background:var(--green);color:var(--navy);border-radius:12px;font-family:'Syne',sans-serif;font-weight:700;font-size:16px;text-decoration:none;transition:all .25s;}
+.bc:hover{transform:translateY(-3px);box-shadow:0 24px 48px rgba(0,212,160,.25);}
+.bco{padding:18px 52px;border:1px solid var(--border2);color:var(--white);border-radius:12px;font-size:16px;text-decoration:none;transition:all .25s;}
+.bco:hover{border-color:rgba(255,255,255,.3);}
+
+/* FOOTER */
+footer{padding:60px 72px;border-top:1px solid var(--border);}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:48px;}
+.fl{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;letter-spacing:5px;margin-bottom:12px;}
+.ftag{font-size:13px;color:var(--gray2);line-height:1.65;margin-bottom:16px;}
+.fdom{font-size:12px;color:var(--gray);}
+.fch{font-size:11px;color:var(--gray);text-transform:uppercase;letter-spacing:1.5px;font-weight:700;margin-bottom:16px;}
+.fli{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.fli a{font-size:14px;color:var(--gray2);text-decoration:none;transition:color .2s;}
+.fli a:hover{color:var(--white);}
+.fb{display:flex;justify-content:space-between;align-items:flex-start;padding-top:32px;border-top:1px solid var(--border);}
+.fc{font-size:12px;color:var(--gray);}
+.fleg{font-size:11px;color:rgba(106,122,144,.6);max-width:480px;text-align:right;line-height:1.6;}
+
+@media(max-width:1024px){
+  nav{padding:16px 24px;}.nav-ul{display:none;}
+  .hero{padding:100px 24px 60px;}.h-vis{display:none;}
+  .stats{padding:48px 24px;}.sg{grid-template-columns:1fr 1fr;gap:32px;}.si{border-right:none;padding:0;text-align:center;}
+  .S{padding:72px 24px;}
+  .pg{grid-template-columns:1fr;gap:40px;}
+  .fg{grid-template-columns:1fr;}.fi{border-right:none;}
+  .stg{grid-template-columns:1fr 1fr;}
+  .ag{grid-template-columns:1fr;}
+  .ch,.cr{grid-template-columns:1.5fr 1fr 1fr;}.ch div:nth-child(4),.cr div:nth-child(4){display:none;}
+  .gg{grid-template-columns:1fr;gap:40px;}
+  .wg{grid-template-columns:1fr;}.wc.wide{grid-template-columns:1fr;}
+  .cta{padding:80px 24px;}
+  footer{padding:48px 24px;}.ft{grid-template-columns:1fr 1fr;gap:32px;}
+  .fb{flex-direction:column;gap:16px;}.fleg{text-align:left;}
+}
+
+.wvis{background:rgba(0,212,160,.03);border:1px solid rgba(0,212,160,.1);border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:24px;}
+.wvis-row{display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.wvis-node{background:var(--card2);border:1px solid var(--border);border-radius:14px;padding:18px 20px;text-align:center;min-width:110px;}
+.wvis-node.contract{border-color:rgba(240,165,0,.25);background:rgba(240,165,0,.04);}
+.wvis-ico{display:flex;justify-content:center;margin-bottom:10px;}
+.wvis-lbl{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--white);margin-bottom:3px;}
+.wvis-sub{font-size:10px;color:var(--gray);letter-spacing:.5px;}
+.wvis-pct{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;margin-top:4px;}
+.wvis-splits{display:flex;flex-direction:column;gap:10px;}
+.wvis-arrow{display:flex;align-items:center;flex-shrink:0;}
+.wvis-badge{text-align:center;font-size:11px;color:var(--gray);letter-spacing:1px;padding:10px;background:rgba(255,255,255,.02);border-radius:8px;border:1px solid var(--border);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo-t">KINET<em>IQ</em></div>
+  <ul class="nav-ul">
+    <li><a href="#problem">The Problem</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#who">Who It's For</a></li>
+    <li><a href="#web3">Web3 Roadmap</a></li>
+  </ul>
+  <div class="nav-r">
+    <a href="https://kineticfinancials.group/login" class="b-ghost">Log in</a>
+    <a href="https://kineticfinancials.group/register" class="b-nav">Get Started</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="h-grid"></div>
+  <div class="h-glow"></div>
+  <div class="h-cont">
+    <div class="h-pill"><span class="pulse"></span>Now Live — Africa's Financial Infrastructure</div>
+    <h1>Money at the<br/><span class="gc">Speed of<br/>Ambition</span></h1>
+    <p>The financial infrastructure Africa's athletes, agents, and businesses have always deserved. Multi-currency wallets, transparent FX, and FIFA-compliant commission splitting — built for the corridors that matter.</p>
+    <div class="h-btns">
+      <a href="https://kineticfinancials.group/register" class="b-hero">Open Your Wallet</a>
+      <a href="#features" class="b-out">How It Works</a>
+    </div>
+  </div>
+  <div class="h-vis">
+    <div class="hc">
+      <div class="hc-lbl">Total Portfolio Value</div>
+      <div class="hc-amt">$31,645.57</div>
+      <div class="hc-sub">All wallets active</div>
+      <div class="hc-pills">
+        <span class="hp on">NGN &#8358;</span>
+        <span class="hp on">USD $</span>
+        <span class="hp">GBP &#163;</span>
+        <span class="hp">EUR &#8364;</span>
+      </div>
+    </div>
+    <div class="fx-c">
+      <div class="fx-col">
+        <div class="fx-l">You Send</div>
+        <div class="fx-v">&#163;5,000 GBP</div>
+      </div>
+      <div class="fx-arr">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00D4A0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+      <div class="fx-col">
+        <div class="fx-l">They Receive</div>
+        <div class="fx-v">&#8358;9,340,750</div>
+        <div class="fx-f">1.5% — fully transparent</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="sg">
+    <div class="si"><div class="sn gr">1.5%</div><div class="sl">KINETIQ FX fee<br/>on Africa corridors</div></div>
+    <div class="si"><div class="sn rd">8.37%</div><div class="sl">Industry average cost<br/>to Sub-Saharan Africa</div></div>
+    <div class="si"><div class="sn gd">$96.4B</div><div class="sl">Remittances into Africa<br/>annually (World Bank 2024)</div></div>
+    <div class="si"><div class="sn rd">80%</div><div class="sl">FIFA training payments<br/>that never reach clubs</div></div>
+  </div>
+</section>
+
+<section class="S" id="problem">
+  <div class="pg">
+    <div>
+      <div class="stag">The Problem</div>
+      <h2 class="sh">Africa's talent is the world's most valuable — and least financially protected — export.</h2>
+      <p class="sp">Hundreds of millions in signing fees, training compensation, and remittances disappear to hidden FX margins, unaudited agents, and infrastructure that was never built for this market. KINETIQ closes that gap.</p>
+    </div>
+    <div class="pcs">
+      <div class="pc">
+        <div class="pi"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <div><div class="pt">Hidden FX Margins</div><div class="pd">Banks claim transfers are free then apply rates 10–15% below market. KINETIQ shows every number — market rate, our rate, our exact fee — before you confirm.</div></div>
+      </div>
+      <div class="pc">
+        <div class="pi"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div><div class="pt">Unverifiable Agent Commissions</div><div class="pd">FIFA FFAR capped agent commissions at 10% — but no system enforces it. KINETIQ does, automatically, on every transaction, with a permanent audit trail.</div></div>
+      </div>
+      <div class="pc">
+        <div class="pi"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <div><div class="pt">Grassroots Clubs Never Paid</div><div class="pd">The FIFA Clearing House owes African academies billions in solidarity payments — but clubs lack compliant banking rails to receive them. KINETIQ is that infrastructure.</div></div>
+      </div>
+      <div class="pc">
+        <div class="pi"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+        <div><div class="pt">No Financial Rails for Informal Talent</div><div class="pd">Before a formal contract, athletes have no compliant way to receive, hold, or move money internationally. KINETIQ creates that layer from day one of discovery.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="S dk" id="features">
+  <div class="stag">What KINETIQ Does</div>
+  <h2 class="sh">Every financial service an African athlete actually needs.</h2>
+  <div class="fg">
+    <div class="fi">
+      <div class="fic"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+      <div class="ftt">Multi-Currency Wallets</div>
+      <div class="fds">Hold NGN, USD, GBP, and EUR in one account. No bank visits, no paperwork. Wallets created automatically on registration.</div>
+    </div>
+    <div class="fi">
+      <div class="fic"><svg viewBox="0 0 24 24"><path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg></div>
+      <div class="ftt">Transparent FX Conversion</div>
+      <div class="fds">See the real market rate and our exact 1.5% fee before every conversion. No surprises. No hidden margins. Honest arithmetic.</div>
+    </div>
+    <div class="fi">
+      <div class="fic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div class="ftt">FFAR Commission Splitting</div>
+      <div class="fds">One incoming payment, split between athlete and agent automatically. Capped at 10% per FIFA FFAR — enforced in code, not trust.</div>
+    </div>
+    <div class="fi">
+      <div class="fic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+      <div class="ftt">Cross-Border Transfers</div>
+      <div class="fds">From a UK club to a Nigerian athlete in seconds. Every transfer on an immutable double-entry ledger with a full audit trail.</div>
+    </div>
+    <div class="fi">
+      <div class="fic"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+      <div class="ftt">KYC and Compliance</div>
+      <div class="fds">BVN and NIN verification for Nigerian users. NDPR-compliant data handling. Built for the regulatory environment, not around it.</div>
+    </div>
+    <div class="fi">
+      <div class="fic"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+      <div class="ftt">Gundua Sports Integration</div>
+      <div class="fds">When an athlete is discovered on Gundua Sports, their KINETIQ wallet activates automatically. Discovery to payment in one ecosystem.</div>
+    </div>
+  </div>
+</section>
+
+<section class="S">
+  <div class="stag">How It Works</div>
+  <h2 class="sh">From discovery to payment in four steps.</h2>
+  <div class="stg">
+    <div class="stp"><div class="stn">01</div><div class="sttl">Register and Verify</div><div class="std">Create your account in under 2 minutes. NGN and USD wallets created automatically. KYC via BVN or NIN — no paperwork.</div></div>
+    <div class="stp"><div class="stn">02</div><div class="sttl">Receive Funds</div><div class="std">Clubs, agents, and sponsors send payments directly to your KINETIQ wallet. Every deposit confirmed instantly with a receipt.</div></div>
+    <div class="stp"><div class="stn">03</div><div class="sttl">Convert and Split</div><div class="std">Convert between currencies at transparent rates. Agent commissions split automatically per FIFA FFAR limits. No disputes.</div></div>
+    <div class="stp"><div class="stn">04</div><div class="sttl">Send Anywhere</div><div class="std">Transfer to family, clubs, or businesses across Africa and Europe. Every transaction on an immutable ledger with a permanent audit trail.</div></div>
+  </div>
+</section>
+
+<section class="S dk" id="who">
+  <div class="stag">Who It's For</div>
+  <h2 class="sh">Built for every person the system overlooked.</h2>
+  <div class="ag">
+    <div class="ac">
+      <div class="aic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+      <div class="at">Athletes</div>
+      <div class="ad">Receive signing fees from European clubs, convert at real rates, send money home, and split commissions with your agent — all in one place, from your phone.</div>
+      <div class="tgs"><span class="tg">Multi-currency wallet</span><span class="tg">Instant deposits</span><span class="tg">FX conversion</span></div>
+    </div>
+    <div class="ac">
+      <div class="aic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="at">Licensed Agents</div>
+      <div class="ad">Receive FIFA FFAR-compliant commissions automatically split on every transaction. Full audit trail for every deal. No disputes, no delays, no manual reconciliation.</div>
+      <div class="tgs"><span class="tg">Auto commission split</span><span class="tg">FFAR compliant</span><span class="tg">Audit trail</span></div>
+    </div>
+    <div class="ac">
+      <div class="aic"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+      <div class="at">Clubs and Academies</div>
+      <div class="ad">Receive FIFA solidarity payments and training compensation through compliant banking rails. Access what the global football economy has owed you for decades.</div>
+      <div class="tgs"><span class="tg">Solidarity payments</span><span class="tg">Business accounts</span><span class="tg">Bulk transfers</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="S">
+  <div class="stag">The Honest Comparison</div>
+  <h2 class="sh">Why KINETIQ.</h2>
+  <div class="ct">
+    <div class="ch">
+      <div></div>
+      <div class="kq">KINETIQ</div>
+      <div>Traditional Banks</div>
+      <div>Generic Fintech</div>
+    </div>
+    <div class="cr"><div>FX fee on Africa corridors</div><div><span class="cv gr">1.5%</span></div><div><span class="cv rd">8&#8211;15%</span></div><div><span class="cv gd">3&#8211;5%</span></div></div>
+    <div class="cr"><div>Transparent fee display</div><div><span class="ck">&#10003;</span></div><div><span class="cx">&#10007;</span></div><div><span class="cp">Partial</span></div></div>
+    <div class="cr"><div>FIFA FFAR commission enforcement</div><div><span class="ck">&#10003;</span></div><div><span class="cx">&#10007;</span></div><div><span class="cx">&#10007;</span></div></div>
+    <div class="cr"><div>Gundua Sports ecosystem integration</div><div><span class="ck">&#10003;</span></div><div><span class="cx">&#10007;</span></div><div><span class="cx">&#10007;</span></div></div>
+    <div class="cr"><div>Immutable ledger audit trail</div><div><span class="ck">&#10003;</span></div><div><span class="cp">Partial</span></div><div><span class="cp">Partial</span></div></div>
+    <div class="cr"><div>African football market expertise</div><div><span class="ck">&#10003;</span></div><div><span class="cx">&#10007;</span></div><div><span class="cx">&#10007;</span></div></div>
+    <div class="cr"><div>Web3 tokenization roadmap</div><div><span class="ck">&#10003;</span></div><div><span class="cx">&#10007;</span></div><div><span class="cp">Some</span></div></div>
+  </div>
+</section>
+
+<section class="S dk">
+  <div class="gg">
+    <div>
+      <div class="stag">Ecosystem Integration</div>
+      <h2 class="sh">Gundua Sports &#215; KINETIQ</h2>
+      <p class="sp">Gundua discovers Africa's overlooked athletic talent. KINETIQ handles everything that happens after discovery. Together they form the only fully integrated talent-to-payment ecosystem on the continent.</p>
+      <br/><br/>
+      <a href="https://gunduasports.com" style="color:var(--green);font-size:14px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;" target="_blank">Visit Gundua Sports <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="gf">
+      <div class="gs"><div class="gn">1</div><div class="gt"><strong>Athlete submits to Gundua</strong> — profile created, footage uploaded, scouting begins across 54 African nations</div></div>
+      <div class="gs"><div class="gn">2</div><div class="gt"><strong>Scout confirms interest</strong> — KINETIQ wallet activates automatically, linked to the Gundua athlete profile</div></div>
+      <div class="gs"><div class="gn">3</div><div class="gt"><strong>Club makes an offer</strong> — signing fee sent directly to the athlete's KINETIQ wallet from anywhere in the world</div></div>
+      <div class="gs"><div class="gn">4</div><div class="gt"><strong>Commission fires automatically</strong> — athlete and agent both credited in one atomic transaction, FFAR compliant</div></div>
+      <div class="gs"><div class="gn">5</div><div class="gt"><strong>Training compensation tracked</strong> — grassroots club receives FIFA solidarity payment through compliant banking rails</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="S" id="web3">
+  <div class="stag">The Future — Web3 Roadmap</div>
+  <h2 class="sh">This is just the beginning.</h2>
+  <p class="sp">KINETIQ is building toward a world where African athletic value is tokenized, portable, and protected by code — not contracts.</p>
+  <div class="wg">
+    <div class="wc wide">
+      <div>
+        <div class="wb">Phase 3 — 2026/27</div>
+        <div class="wt">Smart Contract Commission Enforcement</div>
+        <div class="wd">Agent commissions enforced automatically by smart contract deployed on-chain. No disputes. No delays. No WhatsApp arguments. The FIFA FFAR Article 15 cap written in code, executed atomically the moment a payment arrives. Every stakeholder receives exactly what the contract specifies — instantaneously and irrevocably.</div>
+      </div>
+      <div class="wvis">
+        <div class="wvis-row">
+          <div class="wvis-node source">
+            <div class="wvis-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00D4A0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <div class="wvis-lbl">Club Payment</div>
+            <div class="wvis-sub">Incoming transfer</div>
+          </div>
+          <div class="wvis-arrow">
+            <svg width="32" height="2" viewBox="0 0 32 2"><line x1="0" y1="1" x2="28" y2="1" stroke="#00D4A0" stroke-width="1.5" stroke-dasharray="4 3"/></svg>
+          </div>
+          <div class="wvis-node contract">
+            <div class="wvis-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F0A500" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div class="wvis-lbl">Smart Contract</div>
+            <div class="wvis-sub">FFAR enforced · 10% cap</div>
+          </div>
+          <div class="wvis-arrow">
+            <svg width="32" height="2" viewBox="0 0 32 2"><line x1="0" y1="1" x2="28" y2="1" stroke="#00D4A0" stroke-width="1.5" stroke-dasharray="4 3"/></svg>
+          </div>
+          <div class="wvis-splits">
+            <div class="wvis-node athlete">
+              <div class="wvis-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00D4A0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+              <div class="wvis-lbl">Athlete</div>
+              <div class="wvis-pct" style="color:var(--green)">90%</div>
+            </div>
+            <div class="wvis-node agent">
+              <div class="wvis-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F0A500" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+              <div class="wvis-lbl">Agent</div>
+              <div class="wvis-pct" style="color:var(--gold)">&#8804;10%</div>
+            </div>
+          </div>
+        </div>
+        <div class="wvis-badge">Atomic &#183; Irreversible &#183; On-chain &#183; FIFA FFAR Article 15 compliant</div>
+      </div>
+    </div>
+    <div class="wc"><div class="wb">Phase 3 — 2026/27</div><div class="wt">KINETIQ Athlete Tokens</div><div class="wd">Tokenized athlete value. Clubs and investors hold fractional economic interest in an athlete's future earnings. Fully regulated, fully auditable, unprecedented in African football.</div></div>
+    <div class="wc"><div class="wb">Phase 3 — 2026/27</div><div class="wt">NGN Stablecoin and DeFi Yield</div><div class="wd">A KINETIQ NGN stablecoin pegged 1:1 to the Naira, tradeable on-chain. Idle signing bonuses earn DeFi yield instead of depreciating in a traditional bank at 0%.</div></div>
+    <div class="wc"><div class="wb">Phase 4 — 2027+</div><div class="wt">On-Chain Athletic Credentials</div><div class="wd">Verified achievements, contract history, and scouting records stored immutably on-chain. A scout anywhere verifies a player's full history instantly — no intermediary required.</div></div>
+    <div class="wc"><div class="wb">Phase 4 — 2027+</div><div class="wt">Cross-Chain Financial Identity</div><div class="wd">One KINETIQ KYC verification, usable across multiple blockchains and jurisdictions. The athlete's financial identity becomes as portable as they are.</div></div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-g"></div>
+  <h2>The financial system Africa's<br/>talent deserves is <span class="gc">finally here.</span></h2>
+  <p>Join the first wave. Open your KINETIQ wallet today — it's free.</p>
+  <div class="cbs">
+    <a href="https://kineticfinancials.group/register" class="bc">Open Your Wallet</a>
+    <a href="https://kineticfinancials.group/fx" class="bco">Check Live FX Rates</a>
+  </div>
+</section>
+
+<footer>
+  <div class="ft">
+    <div>
+      <div class="fl">KINET<span style="color:var(--green)">IQ</span></div>
+      <div class="ftag">Financial infrastructure for Africa's rising generation. Multi-currency wallets, transparent FX, and FFAR-compliant commission splitting — built for the corridors that matter.</div>
+      <div class="fdom">kineticfinancials.group</div>
+    </div>
+    <div>
+      <div class="fch">Product</div>
+      <ul class="fli">
+        <li><a href="https://kineticfinancials.group/register">Open Account</a></li>
+        <li><a href="https://kineticfinancials.group/fx">FX Calculator</a></li>
+        <li><a href="https://kineticfinancials.group/login">Log In</a></li>
+        <li><a href="https://gunduasports.com" target="_blank">Gundua Sports</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fch">Company</div>
+      <ul class="fli">
+        <li><a href="#">About KINETIQ</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fch">Legal</div>
+      <ul class="fli">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Compliance</a></li>
+        <li><a href="#">Security</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fb">
+    <div class="fc">&#169; 2026 KINETIQ Financial Group. All rights reserved.</div>
+    <div class="fleg">KINETIQ is a financial technology platform. Banking services provided through licensed partners. Not a deposit-taking institution. All transactions processed through regulated payment infrastructure. FX rates are indicative and subject to market conditions.</div>
+  </div>
+</footer>
+
+</body>
+</html>
