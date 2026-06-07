@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import NavBar from "../components/NavBar";
 
 export default function HomePage() {
   const nav = useNavigate();
@@ -9,17 +10,6 @@ export default function HomePage() {
         :root{--navy:#040D1C;--navy2:#071428;--card:#0B1A2E;--green:#00D4A0;--green2:#00B589;--gold:#F0A500;--red:#F05050;--white:#F0F4FF;--gray:#6A7A90;--gray2:#8A9BB0;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.12);}
         *{margin:0;padding:0;box-sizing:border-box;}
         body{background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
-        .kn{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 72px;display:flex;align-items:center;justify-content:space-between;background:rgba(4,13,28,0.85);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
-        .kl{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;letter-spacing:5px;color:var(--white);cursor:pointer;}
-        .kl em{color:var(--green);font-style:normal;}
-        .knu{display:flex;gap:32px;list-style:none;}
-        .knu a{color:var(--gray2);text-decoration:none;font-size:13px;font-weight:500;transition:color .2s;cursor:pointer;}
-        .knu a:hover{color:var(--white);}
-        .knr{display:flex;gap:10px;align-items:center;}
-        .bg{padding:9px 22px;border:1px solid var(--border2);border-radius:8px;color:var(--white);text-decoration:none;font-size:13px;font-weight:500;cursor:pointer;background:none;transition:all .2s;}
-        .bg:hover{border-color:rgba(0,212,160,.5);color:var(--green);}
-        .bp{padding:9px 22px;background:var(--green);border-radius:8px;color:var(--navy);text-decoration:none;font-size:13px;font-weight:700;font-family:'Syne',sans-serif;cursor:pointer;border:none;transition:all .2s;}
-        .bp:hover{background:var(--green2);}
         .hero{min-height:100vh;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:130px 72px 80px;position:relative;overflow:hidden;}
         .hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);background-size:80px 80px;pointer-events:none;}
         .hglow{position:absolute;width:900px;height:900px;background:radial-gradient(circle,rgba(0,212,160,0.07) 0%,transparent 65%);right:-150px;top:50%;transform:translateY(-50%);pointer-events:none;}
@@ -86,7 +76,6 @@ export default function HomePage() {
         .flinks a{font-size:13px;color:var(--gray2);text-decoration:none;cursor:pointer;}
         .flinks a:hover{color:var(--white);}
         @media(max-width:768px){
-          .kn{padding:14px 20px;}.knu{display:none;}
           .hero{padding:90px 20px 60px;}
           h1{font-size:42px;letter-spacing:-1px;}
           .hsub{font-size:15px;}
@@ -101,20 +90,7 @@ export default function HomePage() {
           .flinks{flex-wrap:wrap;justify-content:center;}
         }
       `}</style>
-
-      <nav className="kn">
-        <div className="kl" onClick={() => nav("/")}>KINET<em>IQ</em></div>
-        <ul className="knu">
-          <li><a onClick={() => nav("/features")}>Features</a></li>
-          <li><a onClick={() => nav("/who")}>Who</a></li>
-          <li><a onClick={() => nav("/roadmap")}>Roadmap</a></li>
-          <li><a onClick={() => nav("/about")}>About</a></li>
-        </ul>
-        <div className="knr">
-          <button className="bg" onClick={() => nav("/login")}>Log in</button>
-          <button className="bp" onClick={() => nav("/register")}>Get Started</button>
-        </div>
-      </nav>
+      <NavBar />
 
       <section className="hero">
         <div className="hgrid"></div>

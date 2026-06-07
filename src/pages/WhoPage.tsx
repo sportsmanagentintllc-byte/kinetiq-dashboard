@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import NavBar from "../components/NavBar";
 
 export default function WhoPage() {
   const nav = useNavigate();
@@ -9,16 +10,6 @@ export default function WhoPage() {
         :root{--navy:#040D1C;--navy2:#071428;--card:#0B1A2E;--card2:#0E2040;--green:#00D4A0;--green2:#00B589;--gold:#F0A500;--red:#F05050;--white:#F0F4FF;--gray:#6A7A90;--gray2:#8A9BB0;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.12);}
         *{margin:0;padding:0;box-sizing:border-box;}
         body{background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
-        .kn{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 72px;display:flex;align-items:center;justify-content:space-between;background:rgba(4,13,28,0.85);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
-        .kl{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;letter-spacing:5px;color:var(--white);cursor:pointer;}
-        .kl em{color:var(--green);font-style:normal;}
-        .knu{display:flex;gap:32px;list-style:none;}
-        .knu a{color:var(--gray2);text-decoration:none;font-size:13px;font-weight:500;cursor:pointer;transition:color .2s;}
-        .knu a:hover,.knu a.act{color:var(--white);}
-        .knr{display:flex;gap:10px;}
-        .bg{padding:9px 22px;border:1px solid var(--border2);border-radius:8px;color:var(--white);font-size:13px;font-weight:500;cursor:pointer;background:none;transition:all .2s;}
-        .bg:hover{border-color:rgba(0,212,160,.5);color:var(--green);}
-        .bp{padding:9px 22px;background:var(--green);border-radius:8px;color:var(--navy);font-size:13px;font-weight:700;font-family:'Syne',sans-serif;cursor:pointer;border:none;}
         .whero{min-height:60vh;display:flex;align-items:flex-end;padding:160px 72px 80px;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--navy2) 0%,var(--navy) 100%);}
         .whero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 0% 100%,rgba(0,212,160,.06) 0%,transparent 60%);}
         .wtag{font-size:11px;color:var(--green);text-transform:uppercase;letter-spacing:2.5px;font-weight:600;margin-bottom:14px;}
@@ -53,7 +44,6 @@ export default function WhoPage() {
         .fl em{color:var(--green);font-style:normal;}
         .fc{font-size:12px;color:var(--gray);}
         @media(max-width:768px){
-          .kn{padding:14px 20px;}.knu{display:none;}
           .whero{padding:110px 20px 60px;min-height:auto;}
           .wcards{padding:48px 20px;grid-template-columns:1fr;gap:16px;}
           .wdivider{padding:48px 20px;}
@@ -61,20 +51,7 @@ export default function WhoPage() {
           footer{padding:24px 20px;flex-direction:column;gap:12px;text-align:center;}
         }
       `}</style>
-
-      <nav className="kn">
-        <div className="kl" onClick={() => nav("/")}>KINET<em>IQ</em></div>
-        <ul className="knu">
-          <li><a onClick={() => nav("/features")}>Features</a></li>
-          <li><a className="act" onClick={() => nav("/who")}>Who</a></li>
-          <li><a onClick={() => nav("/roadmap")}>Roadmap</a></li>
-          <li><a onClick={() => nav("/about")}>About</a></li>
-        </ul>
-        <div className="knr">
-          <button className="bg" onClick={() => nav("/login")}>Log in</button>
-          <button className="bp" onClick={() => nav("/register")}>Get Started</button>
-        </div>
-      </nav>
+      <NavBar />
 
       <div className="whero">
         <div>
