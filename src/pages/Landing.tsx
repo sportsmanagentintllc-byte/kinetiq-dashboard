@@ -178,21 +178,32 @@ footer{padding:60px 72px;border-top:1px solid var(--border);}
 .fc{font-size:12px;color:var(--gray);}
 .fleg{font-size:11px;color:rgba(106,122,144,.6);max-width:480px;text-align:right;line-height:1.6;}
 
-@media(max-width:1024px){
-  nav{padding:16px 24px;}.nav-ul{display:none;}
-  .hero{padding:100px 24px 60px;}.h-vis{display:none;}
-  .stats{padding:48px 24px;}.sg{grid-template-columns:1fr 1fr;gap:32px;}.si{border-right:none;padding:0;text-align:center;}
-  .S{padding:72px 24px;}
-  .pg{grid-template-columns:1fr;gap:40px;}
+@media(max-width:768px){
+  nav{padding:14px 20px;}.nav-ul{display:none;}
+  .hero{padding:90px 20px 60px;min-height:auto;}
+  .h-vis{display:none;}
+  .hero h1{font-size:36px;letter-spacing:-1px;}
+  .hero p{font-size:15px;}
+  .h-btns{flex-direction:column;}
+  .b-hero,.b-out{width:100%;text-align:center;padding:14px 20px;box-sizing:border-box;}
+  .stats{padding:40px 20px;}.sg{grid-template-columns:1fr 1fr;gap:24px;}.si{border-right:none;padding:0;text-align:center;}
+  .sn{font-size:36px;}
+  .S{padding:60px 20px;}
+  .sh{font-size:28px;}
+  .pg{grid-template-columns:1fr;gap:32px;}
   .fg{grid-template-columns:1fr;}.fi{border-right:none;}
+  .fi:nth-child(n+4){border-bottom:1px solid var(--border);}.fi:last-child{border-bottom:none;}
   .stg{grid-template-columns:1fr 1fr;}
   .ag{grid-template-columns:1fr;}
   .ch,.cr{grid-template-columns:1.5fr 1fr 1fr;}.ch div:nth-child(4),.cr div:nth-child(4){display:none;}
-  .gg{grid-template-columns:1fr;gap:40px;}
+  .gg{grid-template-columns:1fr;gap:32px;}
   .wg{grid-template-columns:1fr;}.wc.wide{grid-template-columns:1fr;}
-  .cta{padding:80px 24px;}
-  footer{padding:48px 24px;}.ft{grid-template-columns:1fr 1fr;gap:32px;}
-  .fb{flex-direction:column;gap:16px;}.fleg{text-align:left;}
+  .wvis-row{flex-wrap:wrap;justify-content:center;}
+  .cta{padding:72px 20px;}.cta h2{font-size:32px;}
+  .cbs{flex-direction:column;align-items:stretch;}
+  .bc,.bco{text-align:center;padding:16px 20px;}
+  footer{padding:40px 20px;}.ft{grid-template-columns:1fr 1fr;gap:24px;}
+  .fb{flex-direction:column;gap:12px;}.fleg{text-align:left;}
 }
 
 .wvis{background:rgba(0,212,160,.03);border:1px solid rgba(0,212,160,.1);border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:24px;}
