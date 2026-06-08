@@ -65,6 +65,12 @@ export default function Login() {
           >
             {loading ? "Signing in..." : "Sign In"}
           </button>
+          <div style={{textAlign:"center",marginTop:"12px"}}>
+  <span style={{fontSize:"13px",color:"#8A9BB0",cursor:"pointer"}} 
+    onClick={() => navigate("/forgot-password")}>
+    Forgot your password?
+  </span>
+</div>
 
           <div style={s.registerRow}>
             No account yet?{" "}
