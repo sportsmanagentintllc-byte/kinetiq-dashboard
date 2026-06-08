@@ -12,6 +12,7 @@ import FxQuote from "./pages/FxQuote";
 import Transfer from "./pages/Transfer";
 import Deposit from "./pages/Deposit";
 import AdminPage from "./pages/AdminPage";
+import AdminLogin from "./pages/AdminLogin";
 
 function PrivateRoute({ children }: { children: React.ReactElement }) {
   const token = localStorage.getItem("kinetiq_token");
@@ -32,7 +33,8 @@ function App() {
         <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
         <Route path="/fx" element={<PrivateRoute><FxQuote /></PrivateRoute>} />
         <Route path="/transfer" element={<PrivateRoute><Transfer /></PrivateRoute>} />
-        <Route path="/admin" element={<PrivateRoute><AdminPage /></PrivateRoute>} />
+        <Route path="/admin" element={<AdminPage />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/deposit" element={<PrivateRoute><Deposit /></PrivateRoute>} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
