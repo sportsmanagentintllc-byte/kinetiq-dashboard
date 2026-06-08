@@ -67,7 +67,7 @@ export default function Login() {
           </button>
           <div style={{textAlign:"center",marginTop:"12px"}}>
   <span style={{fontSize:"13px",color:"#8A9BB0",cursor:"pointer"}} 
-    onClick={() => navigate("/forgot-password")}>
+    onClick={() => window.location.href = "/forgot-password"}>
     Forgot your password?
   </span>
 </div>
